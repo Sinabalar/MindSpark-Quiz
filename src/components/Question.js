@@ -1,7 +1,7 @@
 import React from 'react';
 import Option from "./Option";
 
-const Question = ({question, answer, dispatch, points}) => {
+const Question = ({question, answer, dispatch}) => {
 
 
     return (
@@ -11,7 +11,6 @@ const Question = ({question, answer, dispatch, points}) => {
                 question={question}
                 answer={answer}
                 dispatch={dispatch}
-                points={points}
             />
 
         </div>

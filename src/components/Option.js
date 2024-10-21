@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Option = ({question, dispatch, answer,points}) => {
+const Option = ({question, dispatch, answer}) => {
     const hasAnswered = answer !== null;
     return (
         <div className={'options'}>
