@@ -1,10 +1,14 @@
 import Header from "./Header";
 import Main from "./Main";
 import {useEffect, useReducer} from "react";
+import Loader from "./Loader";
+import Error from "./Error";
+import StartScreen from "./StartScreen";
+import Question from "./Question";
 
 const initialState = {
     questions: [],
-    status: ''
+    status: 'loading'
 };
 
 function reducer(state, action) {
@@ -19,7 +23,12 @@ function reducer(state, action) {
         case 'error':
             return {
                 ...state,
-                status:'error'
+                status: 'error'
+            }
+        case 'start':
+            return {
+                ...state,
+                status: 'active'
             }
         default:
             throw new Error('Unknown action');
@@ -27,8 +36,8 @@ function reducer(state, action) {
 }
 
 export default function App() {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state);
+    const [{questions, status}, dispatch] = useReducer(reducer, initialState);
+    const numQuestions = questions.length
 
     useEffect(function () {
         async function fetchQuiz() {
@@ -37,7 +46,7 @@ export default function App() {
                 const data = await res.json();
                 dispatch({type: 'dataReceived', payload: data})
             } catch (e) {
-                dispatch({type:'error'})
+                dispatch({type: 'error'})
             }
 
         }
@@ -49,8 +58,10 @@ export default function App() {
         <div className={'app'}>
             <Header/>
             <Main>
-                <p>1/15</p>
-                <p>Questions</p>
+                {status === 'loading' && <Loader/>}
+                {status === 'error' && <Error/>}
+                {status === 'ready' && <StartScreen dispatch={dispatch} numQuestions={numQuestions}/>}
+                {status === 'active' && <Question/>}
             </Main>
         </div>
 

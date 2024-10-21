@@ -1,5 +1,5 @@
 :root {
-    --color-darkest: #343a40;
+    --color-darkest: #364144;
     --color-dark: #495057;
     --color-medium: #ced4da;
     --color-light: #f1f3f5;
@@ -72,7 +72,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 4rem;
 }
@@ -87,6 +87,7 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 60rem;
 }
 
 .progress {
