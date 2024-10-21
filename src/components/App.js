@@ -8,7 +8,9 @@ import Question from "./Question";
 
 const initialState = {
     questions: [],
-    status: 'loading'
+    status: 'loading',
+    index: 0,
+    answer: null
 };
 
 function reducer(state, action) {
@@ -30,13 +32,18 @@ function reducer(state, action) {
                 ...state,
                 status: 'active'
             }
+        case 'newAnswer':
+            return {
+                ...state,
+                answer: action.payload,
+            }
         default:
             throw new Error('Unknown action');
     }
 }
 
 export default function App() {
-    const [{questions, status}, dispatch] = useReducer(reducer, initialState);
+    const [{questions, status, index, answer}, dispatch] = useReducer(reducer, initialState);
     const numQuestions = questions.length
 
     useEffect(function () {
@@ -61,7 +68,7 @@ export default function App() {
                 {status === 'loading' && <Loader/>}
                 {status === 'error' && <Error/>}
                 {status === 'ready' && <StartScreen dispatch={dispatch} numQuestions={numQuestions}/>}
-                {status === 'active' && <Question/>}
+                {status === 'active' && <Question question={questions[index]} dispatch={dispatch} answer={answer}/>}
             </Main>
         </div>
 

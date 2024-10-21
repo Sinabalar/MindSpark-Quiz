@@ -1,4 +1,4 @@
-import icon from "./coding quiz logo.png"
+import icon from "../coding quiz logo.png"
 function Header() {
   return (
     <header className='app-header'>
