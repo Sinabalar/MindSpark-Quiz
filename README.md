@@ -7,6 +7,9 @@ manages state using the `useReducer` hook for better performance and maintainabi
 
 - Fetches quiz questions from a local server
 - Manages state using `useReducer`
+- Timer for each question
+- Track points and high scores
+- Allows quiz restart
 
 ## Getting Started
 
