@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FinishedScreen = ({points, maxPossiblePoints,highScore}) => {
+const FinishedScreen = ({points, maxPossiblePoints, highScore}) => {
     const percentage = (points / maxPossiblePoints) * 100;
     let emoji;
 
