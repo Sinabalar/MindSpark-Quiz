@@ -12,6 +12,7 @@ import RestartBtn from "./RestartBtn";
 import Footer from "./Footer";
 import Timer from "./Timer";
 
+
 const SECONDS_PER_QUESTION = 30;
 
 const initialState = {
@@ -171,5 +172,3 @@ export default function App() {
 
     )
 }
-
-
