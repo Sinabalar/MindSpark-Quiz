@@ -6,7 +6,7 @@ manages state using the `useReducer` hook for better performance and maintainabi
 ## Features
 
 - Fetches quiz questions from a local server
-- Manages state using `useReducer`
+- Manages state using `React Context` and `useReducer` Hook
 - Timer for each question
 - Track points and high scores
 - Allows quiz restart
