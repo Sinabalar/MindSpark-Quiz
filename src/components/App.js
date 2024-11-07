@@ -17,7 +17,7 @@ import {useQuizContext} from "../context/QuizContext";
 
 
 export default function App() {
-    const{status,questions}=useQuizContext()
+    const{status}=useQuizContext()
 
     return (
         <div className={'app'}>
