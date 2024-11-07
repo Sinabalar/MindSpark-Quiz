@@ -1,6 +1,8 @@
 import React from 'react';
+import {useQuizContext} from "../context/QuizContext";
 
-const NextBtn = ({dispatch, answer, index, numQuestions}) => {
+const NextBtn = () => {
+    const {dispatch, answer, index, numQuestions} = useQuizContext();
 
     if (answer === null) return;
 

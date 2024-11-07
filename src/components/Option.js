@@ -1,6 +1,8 @@
 import React from 'react';
+import {useQuizContext} from "../context/QuizContext";
 
-const Option = ({question, dispatch, answer}) => {
+const Option = () => {
+    const {dispatch, answer,question}=useQuizContext()
     const hasAnswered = answer !== null;
     return (
         <div className={'options'}>
